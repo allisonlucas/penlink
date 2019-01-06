@@ -9,7 +9,7 @@ class App extends Component {
   }
 
   _getList = () => {
-    const sortedClone = sortData(data);
+    const sortedClone = sortData(this.state.data);
     // map over the sorted array and display as list items
     return sortedClone.map((d, i) => (
         <li key={d.id}>
@@ -22,7 +22,7 @@ class App extends Component {
           <div>
             <button onClick={() => {
               this.setState({
-                data: data.splice(i, 1)
+                data: this.state.data.filter(el => el.id !== d.id)
               })
             }}>
               REMOVE
